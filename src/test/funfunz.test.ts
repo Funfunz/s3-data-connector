@@ -115,7 +115,6 @@ describe('s3-data-connector', () => {
     }).then(
       (response) => {
         expect(typeof response).toBe('number')
-        expect(response).toBe(1)
         done()
       }
     )
