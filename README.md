@@ -39,7 +39,7 @@ The configuration supported for each of the databases can be checked at KnexJS
 [discord]: https://discord.gg/HwZ7zMJKwg
 
 [actions-badge]: https://github.com/funfunz/s3-data-connector/workflows/Node.js%20CI/badge.svg
-[action]: https://github.com/Funfunz/s3-data-connector/actions
+[actions]: https://github.com/Funfunz/s3-data-connector/actions
 
 [codecov-badge]: https://codecov.io/gh/Funfunz/s3-data-connector/branch/master/graph/badge.svg
 [codecov]: https://codecov.io/gh/Funfunz/s3-data-connector
