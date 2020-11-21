@@ -1,4 +1,5 @@
 import fs from 'fs'
+import shortid from 'shortid'
 
 import { Connector, addMutation, updateMutation, model } from '../index'
 
@@ -9,7 +10,8 @@ const connector = new Connector({
   }
 })
 
-let filename = 'soMilkySoJohn.png'
+let localFilename = 'soMilkySoJohn.png'
+let uploadedFilename = `${shortid.generate()}.png`
 
 describe('s3-data-connector', () => {
   it('Upload a file', (done) => {
@@ -17,10 +19,9 @@ describe('s3-data-connector', () => {
       entityName: 's3',
       data: {
         file: {
-          filename,
+          filename: uploadedFilename,
           createReadStream: () => {
-
-            return fs.createReadStream(`${__dirname}/${filename}`)
+            return fs.createReadStream(`${__dirname}/${localFilename}`)
           },
           mimetype: 'image/png'
         }
@@ -42,14 +43,14 @@ describe('s3-data-connector', () => {
       entityName: 's3',
       filter: {
         Key: {
-          _like: filename
+          _like: uploadedFilename
         }
       },
       fields: ['Key']
     }).then(
       (response) => {
         expect(Array.isArray(response)).toBeTruthy()
-        expect(response[0].Key).toBe(filename)
+        expect(response[0].Key).toBe(uploadedFilename)
         done()
       }
     )
@@ -60,7 +61,7 @@ describe('s3-data-connector', () => {
       entityName: 's3',
       filter: {
         stuff: {
-          _like: filename
+          _like: uploadedFilename
         }
       },
       fields: ['Key']
@@ -89,14 +90,14 @@ describe('s3-data-connector', () => {
       entityName: 's3',
       filter: {
         Key: {
-          _eq: filename
+          _eq: uploadedFilename
         }
       },
       fields: ['Key']
     }).then(
       (response) => {
         expect(Array.isArray(response)).toBeTruthy()
-        expect(response[0].Key).toBe(filename)
+        expect(response[0].Key).toBe(uploadedFilename)
         done()
       }
     )
@@ -107,7 +108,7 @@ describe('s3-data-connector', () => {
       entityName: 's3',
       filter: {
         Key: {
-          _like: filename
+          _like: uploadedFilename
         }
       },
       fields: ['Key'],
@@ -115,6 +116,7 @@ describe('s3-data-connector', () => {
     }).then(
       (response) => {
         expect(typeof response).toBe('number')
+        expect(response).toBe(1)
         done()
       }
     )
@@ -131,9 +133,9 @@ describe('s3-data-connector', () => {
       fields: ['Key'],
       data: {
         file: {
-          filename,
+          filename: uploadedFilename,
           createReadStream: () => {
-            return fs.createReadStream(`${__dirname}/${filename}`)
+            return fs.createReadStream(`${__dirname}/${localFilename}`)
           },
           mimetype: 'image/png'
         }
@@ -141,7 +143,7 @@ describe('s3-data-connector', () => {
     }).then(
       (response) => {
         expect(Array.isArray(response)).toBeTruthy()
-        expect(response[0].Key).toBe(filename)
+        expect(response[0].Key).toBe(uploadedFilename)
         done()
       }
     )
@@ -152,7 +154,7 @@ describe('s3-data-connector', () => {
       entityName: 's3',
       filter: {
         Key: {
-          _like: filename,
+          _like: uploadedFilename,
         },
       },
     }).then(
