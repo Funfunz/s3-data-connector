@@ -1,7 +1,7 @@
 # Funfunz S3 Data Connector
 
 [![Discord][discord-badge]][discord]
-[![Build Status][travis-badge]][travis]
+[![Build Status][actions-badge]][actions]
 [![codecov][codecov-badge]][codecov]
 ![node][node]
 [![npm version][npm-badge]][npm]
@@ -38,8 +38,8 @@ The configuration supported for each of the databases can be checked at KnexJS
 [discord-badge]: https://img.shields.io/discord/774439225520554004?logo=discord
 [discord]: https://discord.gg/HwZ7zMJKwg
 
-[travis-badge]: https://travis-ci.com/JWebCoder/funfunz.svg?branch=master
-[travis]: https://travis-ci.com/JWebCoder/funfunz
+[actions-badge]: https://github.com/funfunz/s3-data-connector/workflows/Node.js%20CI/badge.svg
+[action]: https://github.com/Funfunz/s3-data-connector/actions
 
 [codecov-badge]: https://codecov.io/gh/Funfunz/s3-data-connector/branch/master/graph/badge.svg
 [codecov]: https://codecov.io/gh/Funfunz/s3-data-connector
