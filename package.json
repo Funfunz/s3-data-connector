@@ -1,6 +1,6 @@
 {
   "name": "@funfunz/s3-data-connector",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "s3 data connector for Funfunz",
   "main": "lib/index.js",
   "scripts": {
