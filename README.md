@@ -12,6 +12,10 @@ This connector creates all the mutations and query to upload and retrieve files 
 
 At the moment, the connector is using the local machine AWS credentials
 
+## Documentation
+
+Just follow the [link](https://funfunz.github.io/funfunz/#/usage/dataConnectors/s3)
+
 ## Usage
 
 **S3 config**
@@ -20,7 +24,7 @@ At the moment, the connector is using the local machine AWS credentials
 {
   connectors: {
     [key: string]: { // user defined name for the connector
-      type: '@funfunz/s3-data-connector'',
+      type: '@funfunz/s3-data-connector',
       config: {
         bucket: string // name of the bucket
         region?: string // region of the bucket
