@@ -8,32 +8,41 @@
 [![PRs Welcome][prs-badge]][prs]
 [![GitHub][license-badge]][license]
 
-## Documentation
+This connector creates all the mutations and query to upload and retrieve files from an S3 bucket
 
-Just follow the [link](https://funfunz.github.io/funfunz/#/usage/dataConnectors/S3)
+At the moment, the connector is using the local machine AWS credentials
 
-## Features
+## Usage
 
-This connector uses KnexJS under the hood and is able to connect to SQL databases
+**S3 config**
 
-**Supported Databases**
+```js
+{
+  connectors: {
+    [key: string]: { // user defined name for the connector
+      type: '@funfunz/s3-data-connector'',
+      config: {
+        bucket: string // name of the bucket
+        region?: string // region of the bucket
+        apiVersion?: string // api version to use
+      },
+    }
+    ...
+  }
+}
+```
 
-- Postgres
-- MSSQL
-- MySQL
-- MariaDB
-- SQLite3
-- Oracle
-- Amazon Redshift
+**S3 entity**
 
-The configuration supported for each of the databases can be checked at KnexJS
+```js
+import { model } from '@funfunz/s3-data-connector'
 
-**Drivers required for each database**
+export default model({
+      name: 's3', // name for the entity, this will be visible under the GraphQL docs
+      connector: 's3' // name defined by the user on the config file
+    })
+```
 
-- pg for PostgreSQL and Amazon Redshift
-- mysql for MySQL or MariaDB
-- sqlite3 for SQLite3
-- mssql for MSSQL
 
 [discord-badge]: https://img.shields.io/discord/774439225520554004?logo=discord
 [discord]: https://discord.gg/HwZ7zMJKwg
